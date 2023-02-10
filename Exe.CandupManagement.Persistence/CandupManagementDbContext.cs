@@ -1,5 +1,8 @@
 ﻿using Exe.CandupManagement.Domain.Common;
 using Exe.CandupManagement.Domain.Entities;
+using Exe.CandupManagement.Persistence.Configuration.User;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Exe.CandupManagement.Persistence
 {
-    public class CandupManagementDbContext : DbContext
+    public class CandupManagementDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
     {
         public CandupManagementDbContext(DbContextOptions<CandupManagementDbContext> options)
             : base(options)
@@ -30,6 +33,21 @@ namespace Exe.CandupManagement.Persistence
             }
 
             return base.SaveChangesAsync(cancellationToken);
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.ApplyConfiguration(new AppRoleConfiguration());
+            builder.ApplyConfiguration(new AppUserConfiguration());
+
+            builder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
+            builder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles");
+            builder.Entity<IdentityUserLogin<Guid>>().ToTable("AppUserLogins");
+            builder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims");
+            builder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens");
+
         }
 
         public DbSet<Category> Categories { get; set; }
@@ -55,7 +73,6 @@ namespace Exe.CandupManagement.Persistence
         public DbSet<Cart> Carts { get; set; }
 
         public DbSet<CartItem> CartItems { get; set; }
-
 
     }
 }
