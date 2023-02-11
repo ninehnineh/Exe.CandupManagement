@@ -15,5 +15,6 @@ namespace Exe.CandupManagement.Domain.Entities
 
 
         public List<CartItem> CartItems { get; set; }
+        public ApplicationUser AppUser { get; set; }
     }
 }

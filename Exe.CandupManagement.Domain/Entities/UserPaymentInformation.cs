@@ -13,5 +13,8 @@ namespace Exe.CandupManagement.Domain.Entities
         public string CardNumber { get; set; }
         public DateTime ExpirationDate { get; set; }
         public int Cvv { get; set; }
+
+        public ApplicationUser AppUser { get; set; }
+
     }
 }
