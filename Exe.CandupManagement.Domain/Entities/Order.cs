@@ -15,5 +15,6 @@ namespace Exe.CandupManagement.Domain.Entities
 
         public List<OrderPaymentInformation> OrderPaymentInformation { get; set; }
         public List<OrderItem> OrderItems { get; set; }
+        public ApplicationUser AppUser { get; set; }
     }
 }

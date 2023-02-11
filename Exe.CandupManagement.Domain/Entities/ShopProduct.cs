@@ -12,6 +12,9 @@ namespace Exe.CandupManagement.Domain.Entities
         public int ShopId { get; set; }
         public int ProductId { get; set; }
         public decimal Price { get; set; }
+        public int views { get; set; }
+        public int PopularityScore { get; set; }
+
 
         public Product Products { get; set; }
         public Shop Shops { get; set; }
