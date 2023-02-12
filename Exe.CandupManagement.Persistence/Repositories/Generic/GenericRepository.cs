@@ -1,4 +1,4 @@
-﻿using Exe.CandupManagement.Application.Contracts.Persistence;
+﻿using Exe.CandupManagement.Application.Contracts.Persistence.Generic;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -35,9 +35,9 @@ namespace Exe.CandupManagement.Persistence.Repositories.Generic
             return entity != null;
         }
 
-        public Task<IEnumerable<T>> GetAllAsync()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _dbContext.Set<T>().ToListAsync();
         }
 
         public async Task<T> GetAsync(int Id)

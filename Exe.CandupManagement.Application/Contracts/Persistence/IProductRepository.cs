@@ -1,5 +1,6 @@
 ﻿using Exe.CandupManagement.Application.Contracts.Persistence.Generic;
 using Exe.CandupManagement.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;

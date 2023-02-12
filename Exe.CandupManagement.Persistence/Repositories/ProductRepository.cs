@@ -1,6 +1,7 @@
 ﻿using Exe.CandupManagement.Application.Contracts.Persistence;
 using Exe.CandupManagement.Domain.Entities;
 using Exe.CandupManagement.Persistence.Repositories.Generic;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,6 @@ namespace Exe.CandupManagement.Persistence.Repositories
         {
             _dbContext = dbContext;
         }
+
     }
 }
