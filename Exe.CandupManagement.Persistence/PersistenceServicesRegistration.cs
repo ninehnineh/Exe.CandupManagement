@@ -1,4 +1,6 @@
 ﻿using Exe.CandupManagement.Application.Contracts.Persistence;
+using Exe.CandupManagement.Application.Contracts.Persistence.Generic;
+using Exe.CandupManagement.Persistence.Repositories;
 using Exe.CandupManagement.Persistence.Repositories.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -20,7 +22,8 @@ namespace Exe.CandupManagement.Persistence
                 ops.UseSqlServer(configuration.GetConnectionString("CandupManagementConnectionString")));
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             return services;
         }
