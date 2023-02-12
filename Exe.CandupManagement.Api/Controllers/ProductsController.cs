@@ -3,6 +3,7 @@ using Exe.CandupManagement.Application.Features.Products.Requests.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
 
 namespace Exe.CandupManagement.Api.Controllers
 {
@@ -18,6 +19,7 @@ namespace Exe.CandupManagement.Api.Controllers
         }
 
         [HttpGet]
+        [EnableQuery]
         public async Task<ActionResult<List<ProductListDto>>> Get()
         {
             var products = await _mediator.Send(new GetProductListRequest());

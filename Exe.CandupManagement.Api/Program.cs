@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers().AddOData(op => 
-op.Select().AddRouteComponents("odata", GetEdmModel()));
+op.Select().Filter().OrderBy().SetMaxTop(100).AddRouteComponents("odata", GetEdmModel()));
 
 static IEdmModel GetEdmModel()
 {
