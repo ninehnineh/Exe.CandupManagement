@@ -48,6 +48,10 @@ namespace Exe.CandupManagement.Persistence
             builder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims");
             builder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens");
 
+            builder.Entity<ApplicationUser>()
+                .HasOne(b => b.Cart)
+                .WithOne(i => i.AppUser)
+                .HasForeignKey<Cart>(b => b.UserForeignKey);
         }
 
         public DbSet<Category> Categories { get; set; }
