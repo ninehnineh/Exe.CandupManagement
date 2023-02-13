@@ -17,7 +17,7 @@ namespace Exe.CandupManagement.Domain.Entities
         public string StudentNumber { get; set; }
         public string StudentCardImage { get; set; }
 
-        public List<Cart> Carts { get; set; }
+        public Cart Cart { get; set; }
         public List<UserPaymentInformation> UserPaymentInformation { get; set; }
         public List<Order> Orders { get; set; }
     }
