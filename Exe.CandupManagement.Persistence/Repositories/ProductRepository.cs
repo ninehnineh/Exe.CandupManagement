@@ -20,6 +20,18 @@ namespace Exe.CandupManagement.Persistence.Repositories
             _dbContext = dbContext;
         }
 
+        //public override async Task<IEnumerable<Product>> GetAllAsync()
+        //{
+        //    var products = await _dbContext.Products.Include(x => x.Category).ToListAsync();
+        //    return products;
+        //}
+
+        public override async Task<Product> GetAsync(int Id)
+        {
+            var product = await _dbContext.Products.Include(x => x.Category).FirstOrDefaultAsync(x => x.Id == Id);
+            return product;
+        }
+
         public async Task ChangeApprovalStatus(Product product, bool approvalStatus)
         {
             product.IsAvailable = approvalStatus;
