@@ -11,5 +11,7 @@ namespace Exe.CandupManagement.Application.Contracts.Persistence
 {
     public interface IProductRepository : IGenericRepository<Product>
     {
+        Task ChangeApprovalStatus(Product Product, bool ApprovalStatus);
+
     }
 }

@@ -19,5 +19,11 @@ namespace Exe.CandupManagement.Persistence.Repositories
             _dbContext = dbContext;
         }
 
+        public async Task ChangeApprovalStatus(Product product, bool approvalStatus)
+        {
+            product.IsAvailable = approvalStatus;
+            _dbContext.Entry(product).State = EntityState.Modified;
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

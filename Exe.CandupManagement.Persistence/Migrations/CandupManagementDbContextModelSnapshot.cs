@@ -240,7 +240,7 @@ namespace Exe.CandupManagement.Persistence.Migrations
                     b.HasIndex("UserForeignKey")
                         .IsUnique();
 
-                    b.ToTable("Carts");
+                    b.ToTable("Carts", (string)null);
                 });
 
             modelBuilder.Entity("Exe.CandupManagement.Domain.Entities.CartItem", b =>
@@ -269,7 +269,7 @@ namespace Exe.CandupManagement.Persistence.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("CartItems");
+                    b.ToTable("CartItems", (string)null);
                 });
 
             modelBuilder.Entity("Exe.CandupManagement.Domain.Entities.Category", b =>
@@ -294,7 +294,7 @@ namespace Exe.CandupManagement.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("Exe.CandupManagement.Domain.Entities.Discount", b =>
@@ -325,7 +325,7 @@ namespace Exe.CandupManagement.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Discounts");
+                    b.ToTable("Discounts", (string)null);
                 });
 
             modelBuilder.Entity("Exe.CandupManagement.Domain.Entities.Inventory", b =>
@@ -353,7 +353,7 @@ namespace Exe.CandupManagement.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Inventories");
+                    b.ToTable("Inventories", (string)null);
                 });
 
             modelBuilder.Entity("Exe.CandupManagement.Domain.Entities.Order", b =>
@@ -383,7 +383,7 @@ namespace Exe.CandupManagement.Persistence.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("Exe.CandupManagement.Domain.Entities.OrderItem", b =>
@@ -418,7 +418,7 @@ namespace Exe.CandupManagement.Persistence.Migrations
 
                     b.HasIndex("ShopProductId");
 
-                    b.ToTable("OrderItems");
+                    b.ToTable("OrderItems", (string)null);
                 });
 
             modelBuilder.Entity("Exe.CandupManagement.Domain.Entities.OrderPaymentInformation", b =>
@@ -451,7 +451,7 @@ namespace Exe.CandupManagement.Persistence.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderPaymentInformation");
+                    b.ToTable("OrderPaymentInformation", (string)null);
                 });
 
             modelBuilder.Entity("Exe.CandupManagement.Domain.Entities.Product", b =>
@@ -495,7 +495,7 @@ namespace Exe.CandupManagement.Persistence.Migrations
 
                     b.HasIndex("DiscountId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("Exe.CandupManagement.Domain.Entities.Shop", b =>
@@ -523,7 +523,7 @@ namespace Exe.CandupManagement.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Shops");
+                    b.ToTable("Shops", (string)null);
                 });
 
             modelBuilder.Entity("Exe.CandupManagement.Domain.Entities.ShopProduct", b =>
@@ -566,7 +566,7 @@ namespace Exe.CandupManagement.Persistence.Migrations
 
                     b.HasIndex("ShopId");
 
-                    b.ToTable("ShopProducts");
+                    b.ToTable("ShopProducts", (string)null);
                 });
 
             modelBuilder.Entity("Exe.CandupManagement.Domain.Entities.UserPaymentInformation", b =>
@@ -602,7 +602,7 @@ namespace Exe.CandupManagement.Persistence.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("UserPaymentInformation");
+                    b.ToTable("UserPaymentInformation", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
