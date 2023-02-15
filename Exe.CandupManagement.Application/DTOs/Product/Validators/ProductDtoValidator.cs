@@ -20,10 +20,6 @@ namespace Exe.CandupManagement.Application.DTOs.Product.Validators
                 .NotNull()
                 .MaximumLength(100).WithMessage("{PropertyName} must not exceed {ComparisonValue} characters.");
 
-            RuleFor(x => x.Image)
-                .NotEmpty().WithMessage("{PropertyName} is required.")
-                .NotNull();
-
             RuleFor(p => p.Price)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull()

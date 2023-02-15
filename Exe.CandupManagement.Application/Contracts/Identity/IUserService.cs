@@ -9,6 +9,6 @@ namespace Exe.CandupManagement.Application.Contracts.Identity
 {
     public interface IUserService
     {
-        Task<List<Customer>> GetEmployees();
+        Task<List<Customer>> GetCustomers();
     }
 }

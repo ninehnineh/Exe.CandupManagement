@@ -1,4 +1,5 @@
 ﻿using Exe.CandupManagement.Application.Contracts.Persistence;
+using Exe.CandupManagement.Application.Models;
 using Exe.CandupManagement.Domain.Entities;
 using Exe.CandupManagement.Persistence.Repositories.Generic;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +25,32 @@ namespace Exe.CandupManagement.Persistence.Repositories
             product.IsAvailable = approvalStatus;
             _dbContext.Entry(product).State = EntityState.Modified;
             await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<Product>> GetAvailableProductAsync()
+        {
+            var products = await  _dbContext.Products
+                .Where(x => x.IsAvailable == true)
+                .ToListAsync();
+            return products;
+        }
+
+        public async Task<PagedResult<Product>> GetPageAsync(int pageNumber, int pageSize)
+        {
+            var products = _dbContext.Products;
+            var totalItems = await products.CountAsync();
+
+            var itemsOnPage = await products.Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return new PagedResult<Product>
+            {
+                TotalItems = totalItems,
+                PageSize = pageSize,
+                PageNumber = pageNumber,
+                ListItems = itemsOnPage
+            };
         }
     }
 }
