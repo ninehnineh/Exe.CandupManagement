@@ -20,4 +20,8 @@
     <ProjectReference Include="..\Exe.CandupManagement.Persistence\Exe.CandupManagement.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UploadFile\" />
+  </ItemGroup>
+
 </Project>

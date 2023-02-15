@@ -1,4 +1,5 @@
 ﻿using Exe.CandupManagement.Application.Contracts.Persistence.Generic;
+using Exe.CandupManagement.Application.Models;
 using Exe.CandupManagement.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,6 +13,7 @@ namespace Exe.CandupManagement.Application.Contracts.Persistence
     public interface IProductRepository : IGenericRepository<Product>
     {
         Task ChangeApprovalStatus(Product Product, bool ApprovalStatus);
-
+        Task<IEnumerable<Product>> GetAvailableProductAsync();
+        Task<PagedResult<Product>> GetPageAsync(int pageNumber, int pageSize);
     }
 }
