@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Exe.CandupManagement.Application.DTOs.Category;
 using Exe.CandupManagement.Application.DTOs.Product;
 using Exe.CandupManagement.Domain.Entities;
 using System;
@@ -18,6 +19,10 @@ namespace Exe.CandupManagement.Application.MappingProfile
             CreateMap<Product, ProductListDto>().ReverseMap();
             CreateMap<Product, CreateProductDto>().ReverseMap();
             CreateMap<Product, UpdateProductDto>().ReverseMap();
+            #endregion
+
+            #region Category mappings
+            CreateMap<Category, CategoryDto>().ReverseMap();
             #endregion
         }
     }
