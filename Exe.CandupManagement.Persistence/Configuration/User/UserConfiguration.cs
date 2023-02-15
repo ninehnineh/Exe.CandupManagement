@@ -1,4 +1,5 @@
-﻿using Exe.CandupManagement.Domain.Entities;
+﻿using Exe.CandupManagement.Application.Models.Identity;
+using Exe.CandupManagement.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -26,21 +27,24 @@ namespace Exe.CandupManagement.Persistence.Configuration.User
                 {
                     Id = Guid.NewGuid(),
                     Email = "admin@gmail.com",
+                    NormalizedEmail = "ADMIN@GMAIL.COM",
                     FirstName = "System",
                     LastName = "Admin",
                     UserName = "admin@gmail.com",
+                    NormalizedUserName = "ADMIN@GMAIL.COM",
                     PasswordHash = hasher.HashPassword(null, "Password123"),
                     EmailConfirmed = false,
-
                 },
 
                 new ApplicationUser
                 {
                     Id = Guid.NewGuid(),
                     Email = "staff@gmail.com",
+                    NormalizedEmail = "STAFF@GMAIL.COM",
                     FirstName = "System",
                     LastName = "Staff",
                     UserName = "staff@gmail.com",
+                    NormalizedUserName = "STAFF@GMAIL.COM",
                     PasswordHash = hasher.HashPassword(null, "Password123"),
                     EmailConfirmed = false,
                 },
@@ -49,9 +53,11 @@ namespace Exe.CandupManagement.Persistence.Configuration.User
                 {
                     Id = Guid.NewGuid(),
                     Email = "Customer@gmail.com",
+                    NormalizedEmail = "CUSTOMER@GMAIL.COM",
                     FirstName = "System",
                     LastName = "Customer",
                     UserName = "Customer@gmail.com",
+                    NormalizedUserName = "CUSTOMER@GMAIL.COM",
                     PasswordHash = hasher.HashPassword(null, "Password123"),
                     EmailConfirmed = false,
                 }
