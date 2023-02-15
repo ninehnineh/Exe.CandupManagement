@@ -52,6 +52,7 @@ namespace Exe.CandupManagement.Persistence
                 .HasOne(b => b.Cart)
                 .WithOne(i => i.AppUser)
                 .HasForeignKey<Cart>(b => b.UserForeignKey);
+
         }
 
         public DbSet<Category> Categories { get; set; }

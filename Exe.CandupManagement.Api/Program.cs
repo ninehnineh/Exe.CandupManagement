@@ -9,16 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers().AddOData(op => 
-op.Select().Filter().OrderBy().SetMaxTop(100).AddRouteComponents("odata", GetEdmModel()));
-
-static IEdmModel GetEdmModel()
-{
-    var builder = new ODataConventionModelBuilder();
-    builder.EntitySet<Product>("Products");
-
-    return builder.GetEdmModel();
-}
+builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

@@ -14,8 +14,10 @@ namespace Exe.CandupManagement.Application.MappingProfile
         public MappingProfile()
         {
             #region Product mappings
-            CreateMap<Product, ProductDto>();
-            CreateMap<Product, ProductListDto>();
+            CreateMap<Product, ProductDto>().ReverseMap();
+            CreateMap<Product, ProductListDto>().ReverseMap();
+            CreateMap<Product, CreateProductDto>().ReverseMap();
+            CreateMap<Product, UpdateProductDto>().ReverseMap();
             #endregion
         }
     }

@@ -12,9 +12,9 @@
   <ItemGroup>
     <Folder Include="DTOs\Cart\" />
     <Folder Include="DTOs\CartItem\" />
+    <Folder Include="DTOs\Category\Validatiors\" />
     <Folder Include="DTOs\Discount\" />
     <Folder Include="DTOs\Inventory\" />
-    <Folder Include="DTOs\Product\Validators\" />
     <Folder Include="DTOs\UserPaymentInformation\" />
     <Folder Include="DTOs\ShopProduct\" />
     <Folder Include="DTOs\Shop\" />
