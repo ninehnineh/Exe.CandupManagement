@@ -4,6 +4,7 @@ using Exe.CandupManagement.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Exe.CandupManagement.Persistence.Migrations
 {
     [DbContext(typeof(CandupManagementDbContext))]
-    partial class CandupManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230215112941_seedingAppUser")]
+    partial class seedingAppUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,24 +58,21 @@ namespace Exe.CandupManagement.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("58fd9ee4-4e33-4099-82df-2a080d69e440"),
-                            ConcurrencyStamp = "538802f6-e972-482c-b781-10ea1ed4d8df",
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
+                            Id = new Guid("c446b5bb-5fb0-4e59-ab54-eefe756e29ba"),
+                            ConcurrencyStamp = "bccf906a-630a-4c24-b6cd-aa852197b81e",
+                            Name = "Admin"
                         },
                         new
                         {
-                            Id = new Guid("b1535e87-2af6-4b71-98a8-a72388ac26e0"),
-                            ConcurrencyStamp = "61261486-01c0-46ad-beda-def962858081",
-                            Name = "Staff",
-                            NormalizedName = "STAFF"
+                            Id = new Guid("aa0b7153-e261-493a-ad88-a3659d2e77ac"),
+                            ConcurrencyStamp = "ef6e137b-e7a6-402f-b8af-4f5aab5031e1",
+                            Name = "Staff"
                         },
                         new
                         {
-                            Id = new Guid("5eb8d09f-7c6e-4a5d-ae91-24d5a577a9a3"),
-                            ConcurrencyStamp = "ce7e0daf-5213-4e97-9d77-43c27ca17b9f",
-                            Name = "Customer",
-                            NormalizedName = "CUSTOMER"
+                            Id = new Guid("784a743f-ac45-4933-b275-e58d64c1b29c"),
+                            ConcurrencyStamp = "8caa6710-1c17-4a6e-89b5-2e33368341ad",
+                            Name = "Customer"
                         });
                 });
 
@@ -170,9 +169,9 @@ namespace Exe.CandupManagement.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("07be7b1a-77c4-4ed8-92d0-82805990f7e8"),
+                            Id = new Guid("90042ec6-52dd-4d6e-a563-c81e6fecdff1"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6eec9365-be64-4988-978e-554a7d22c90d",
+                            ConcurrencyStamp = "eac75726-3c3a-448a-b9fe-4cb2ca42cfe2",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "System",
@@ -180,16 +179,16 @@ namespace Exe.CandupManagement.Persistence.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMABUfLuhZ3Yh56/TTS/02WwcYuQd7nBNrqWYuVsqs+6jPmimG2ZQ2v3ZfdcpaFQaQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEI0LVwJbAslzw4aRbmCi5/JuYG36vKJffoQyH3pxZnKFDu0BUlJAMcptTDv4+IsiPg==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         },
                         new
                         {
-                            Id = new Guid("257aea8a-5f0d-4c0b-963a-cef4d80cd9ab"),
+                            Id = new Guid("bdb2d430-1b77-4346-ad8b-da120ad4e4fc"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ef108efd-2183-480e-8b33-b0f618041751",
+                            ConcurrencyStamp = "ae817a00-bbf0-42b2-a0c4-fcb849f13759",
                             Email = "staff@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "System",
@@ -197,16 +196,16 @@ namespace Exe.CandupManagement.Persistence.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "STAFF@GMAIL.COM",
                             NormalizedUserName = "STAFF@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFfHfOIlltpzPUho6CJ3hu3Xt3CuV/L4VcZ7oGDqqqWbHOghM+SRfeX+sUl1XCTdkg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECZhhsfPmZ0cH8Ue+qJNhBlx7TbNWgocaVZImEhPQy9UrcpSE1ZBrge6oNH0W1hEcg==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "staff@gmail.com"
                         },
                         new
                         {
-                            Id = new Guid("580bc2c7-b8ea-4965-99e9-cb7c15f67896"),
+                            Id = new Guid("d7178439-c581-425c-ab0a-71c85fd812d5"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0210068d-f4f6-4a6f-a187-5db718108d47",
+                            ConcurrencyStamp = "d0d4bd26-0b2a-4324-a0b4-d7715e124236",
                             Email = "Customer@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "System",
@@ -214,7 +213,7 @@ namespace Exe.CandupManagement.Persistence.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER@GMAIL.COM",
                             NormalizedUserName = "CUSTOMER@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECf6XANKyc+pSCKxgUdcGhdf6dvEBCJcrB0qAfe3Bwc8OxVBseFrS1xmc8pW7trKEw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFK+GdMFtzOdXN4F9RkwNdDvo5u6hkRPiigxTvBNYvcOpleNAceV8XeasvNJ4UbSuA==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "Customer@gmail.com"

@@ -23,18 +23,21 @@ namespace Exe.CandupManagement.Persistence.Configuration.User
                 {
                     Id = Guid.NewGuid(),
                     Name = "Admin",
+                    NormalizedName = "ADMIN"
                 },
 
                 new ApplicationRole
                 {
                     Id = Guid.NewGuid(),
                     Name = "Staff",
+                    NormalizedName = "STAFF"
                 },
 
                 new ApplicationRole
                 {
                     Id = Guid.NewGuid(),
-                    Name = "Customer"
+                    Name = "Customer",
+                    NormalizedName = "CUSTOMER"
                 }
                 );
         }
