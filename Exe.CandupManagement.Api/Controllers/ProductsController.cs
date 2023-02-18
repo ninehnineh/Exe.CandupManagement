@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
+using System.Net.NetworkInformation;
 
 namespace Exe.CandupManagement.Api.Controllers
 {
@@ -49,6 +50,21 @@ namespace Exe.CandupManagement.Api.Controllers
             var products = await _mediator.Send(new GetProductPageRequest { PageNumber = pageNumber, PageSize = pageSize });
             return Ok(products);
         }
+
+        [HttpGet("SearchProductName/{productName}")]
+        public async Task<ActionResult<IEnumerable<ProductListDto>>> GetProductsByName(string productName, int pageNumber = 1, int pageSize = 5)
+        {
+            var products = await _mediator.Send(new GetProductsByNameRequest
+            {
+                SearchProductByNameDto = new SearchProductByNameDto
+                {
+                    ProductName = productName,
+                    PagedRequest = new PagedRequest { PageSize = pageSize, PageNumber = pageNumber }
+                }
+            });
+            return Ok(products);
+        }
+
 
         [HttpPost]
         public async Task<ActionResult> Post(IFormFile file, [FromForm] CreateProductDto createProductDto)

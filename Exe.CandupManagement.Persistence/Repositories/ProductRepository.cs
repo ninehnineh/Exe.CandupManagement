@@ -1,4 +1,5 @@
 ﻿using Exe.CandupManagement.Application.Contracts.Persistence;
+using Exe.CandupManagement.Application.DTOs.Product;
 using Exe.CandupManagement.Application.Models;
 using Exe.CandupManagement.Domain.Entities;
 using Exe.CandupManagement.Persistence.Repositories.Generic;
@@ -25,6 +26,22 @@ namespace Exe.CandupManagement.Persistence.Repositories
         //    var products = await _dbContext.Products.Include(x => x.Category).ToListAsync();
         //    return products;
         //}
+
+        public async Task<IEnumerable<Product>> SearchProductsByName(SearchProductByNameDto searchProductByNameDto)
+        {
+            var products = _dbContext.Products.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchProductByNameDto.ProductName))
+            {
+                products = products.Where(x => x.ProductName.ToLower().Trim()
+                .Contains(searchProductByNameDto.ProductName.ToLower().Trim()));
+            }
+
+            var skip = (searchProductByNameDto.PagedRequest.PageNumber - 1) * searchProductByNameDto.PagedRequest.PageSize;
+            products = products.Skip(skip).Take(searchProductByNameDto.PagedRequest.PageSize);
+
+            return await products.ToListAsync();
+        }
 
         public override async Task<Product> GetAsync(int Id)
         {
@@ -63,6 +80,11 @@ namespace Exe.CandupManagement.Persistence.Repositories
                 PageNumber = pageNumber,
                 ListItems = itemsOnPage
             };
+        }
+
+        public Task<IEnumerable<Product>> SearchProductsByPrice(SearchProductByPriceDto searchProductByPriceDto)
+        {
+            throw new NotImplementedException();
         }
     }
 }
